@@ -2,18 +2,24 @@
 import './App.css'
 import Footer from './Components/Footer'
 import Header from './Components/Header'
-import {Outlet} from "react-router-dom"
 import Hero from './Components/Hero'
 
 function App() {
 
   return (
-    <div >
+    <div className='bg-slate-200 '>
+      <header>
       <Header/>
-      <main>
-        <Outlet/>
+      </header>
+   
+      <main className='min-h-screen bg-slate-200'>
+        <Hero />
       </main>
+
+      <footer>
       <Footer/>
+      </footer>
+      
     </div>
   )
 }

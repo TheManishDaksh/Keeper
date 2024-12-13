@@ -5,7 +5,7 @@ function Footer() {
     const currentDate = Date.now()
   return (
     <div>
-        <p className='text-center text-slate-400' >@copyright {format(currentDate,"yyyy-MM-dd")}</p>
+        <p className='text-center text-slate-400 ' >@copyright {format(currentDate,"yyyy-MM-dd")}</p>
     </div>
   )
 }
