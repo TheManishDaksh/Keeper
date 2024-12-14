@@ -4,9 +4,9 @@ import {format} from "date-fns"
 function Footer() {
     const currentDate = Date.now()
   return (
-    <div>
-        <p className='text-center text-slate-400 ' >@copyright {format(currentDate,"yyyy-MM-dd")}</p>
-    </div>
+    <footer>
+        <p >@copyright {format(currentDate,"yyyy-MM-dd")}</p>
+    </footer>
   )
 }
 

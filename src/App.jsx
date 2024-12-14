@@ -2,26 +2,44 @@
 import './App.css'
 import Footer from './Components/Footer'
 import Header from './Components/Header'
-import Hero from './Components/Hero'
+import Note from './Components/Note'
+import CreateArea from "./Components/CreateArea"
+import { useState } from 'react'
 
 function App() {
+ const [notes, setNote] = useState([])
 
-  return (
-    <div className='bg-slate-200 '>
-      <header>
-      <Header/>
-      </header>
-   
-      <main className='min-h-screen bg-slate-200'>
-        <Hero />
-      </main>
+ function addNote(newNote){
+  setNote((prev)=>{
+    return[...prev, newNote]
+  })
+ }
 
-      <footer>
-      <Footer/>
-      </footer>
-      
-    </div>
-  )
+ function deleteNote(id){
+  setNote((prev)=>{
+    return prev.filter((noteItem, index)=>{
+      return id !== index
+    })
+  })
+ }
+ 
+ return (
+  <div>
+    <Header />
+    <CreateArea onAdd={addNote} />
+    {notes.map((noteItem, index) => {
+      return (
+        <Note
+          key={index}
+          id={index}
+          title={noteItem.title}
+          content={noteItem.content}
+          onDelete={deleteNote}
+        />
+      );
+    })}
+    <Footer />
+  </div>
+);
 }
-
 export default App
